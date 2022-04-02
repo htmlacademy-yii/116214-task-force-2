@@ -23,19 +23,24 @@ class Task {
         $this->status = $status;
     }
     private function getAllStatuses() :array {
-        $reflectionClass = new ReflectionClass(__CLASS__);
-        $constants = $reflectionClass->getConstants();
-        return array_filter($constants, function($value, $name) {
-            return str_starts_with($name, 'STATUS_');
-        }, ARRAY_FILTER_USE_BOTH );
+        return [
+            Task::STATUS_NEW,
+            Task::STATUS_CANCELED,
+            Task::STATUS_IN_PROGRESS,
+            Task::STATUS_COMPLETED,
+            Task::STATUS_FAILED,
+        ];
     }
 
     private function getAllActions() :array {
-        $reflectionClass = new ReflectionClass(__CLASS__);
-        $constants = $reflectionClass->getConstants();
-        return array_filter($constants, function($value, $name) {
-            return str_starts_with($name, 'ACTION_');
-        }, ARRAY_FILTER_USE_BOTH );
+        return [
+            Task::ACTION_ADD,
+            Task::ACTION_CANCEL,
+            Task::ACTION_START,
+            Task::ACTION_COMPLETE,
+            Task::ACTION_REFUSE,
+            Task::ACTION_RESPOND,
+        ];
     }
 
     private function getAvailableActions(string $status) :array {
