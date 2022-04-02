@@ -1,10 +1,6 @@
 <?php
 class Task
 {
-    private int $clientId;
-    private int $executorId;
-    private string $status;
-
     private CONST STATUS_NEW = 'new';
     private CONST STATUS_CANCELED = 'canceled';
     private CONST STATUS_IN_PROGRESS = 'inProgress';
@@ -18,12 +14,34 @@ class Task
     private CONST ACTION_REFUSE = 'refuse';
     private CONST ACTION_RESPOND = 'respond';
 
+    /**
+     * @var int
+     */
+    private int $clientId;
+    /**
+     * @var int
+     */
+    private int $executorId;
+    /**
+     * @var string
+     */
+    private string $status;
+
+    /**
+     * @param int $clientId
+     * @param int $executorId
+     * @param string $status
+     */
     public function __construct(int $clientId, int $executorId, string $status)
     {
         $this->clientId = $clientId;
         $this->executorId = $executorId;
         $this->status = $status;
     }
+
+    /**
+     * @return string[]
+     */
     private function getAllStatuses() :array
     {
         return [
@@ -35,6 +53,9 @@ class Task
         ];
     }
 
+    /**
+     * @return string[]
+     */
     private function getAllActions() :array
     {
         return [
@@ -47,6 +68,10 @@ class Task
         ];
     }
 
+    /**
+     * @param string $status
+     * @return string[]
+     */
     private function getAvailableActions(string $status) :array
     {
         return match ($status) {
@@ -56,6 +81,10 @@ class Task
         };
     }
 
+    /**
+     * @param string $action
+     * @return string
+     */
     private function getActionResultingStatus(string $action) :string
     {
         return match ($action) {
@@ -67,6 +96,9 @@ class Task
         };
     }
 
+    /**
+     * @return string[]
+     */
     private function getStatusesMap() :array
     {
         return [
@@ -78,6 +110,9 @@ class Task
         ];
     }
 
+    /**
+     * @return string[]
+     */
     private function getActionsMap() :array
     {
         return [
