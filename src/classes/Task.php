@@ -45,40 +45,39 @@ class Task {
 
     private function getAvailableActions(string $status) :array {
         return match ($status) {
-            'new' => ['respond', 'cancel', 'start'],
-            'inProgress' => ['complete', 'refuse'],
-            'canceled', 'completed', 'failed' => [],
+            Task::STATUS_NEW => [Task::ACTION_START, Task::ACTION_CANCEL],
+            Task::STATUS_IN_PROGRESS => [Task::ACTION_COMPLETE, Task::ACTION_REFUSE],
+            Task::STATUS_CANCELED, Task::STATUS_COMPLETED, Task::STATUS_FAILED => [],
         };
     }
 
     private function getActionResultingStatus(string $action) :string {
         return match ($action) {
-          'add' => 'new',
-          'respond' => '',
-          'cancel' => 'canceled',
-          'start' => 'inProgress',
-          'complete' => 'completed',
-          'refuse' => 'failed',
+          Task::ACTION_ADD => Task::STATUS_NEW,
+          Task::ACTION_CANCEL => Task::STATUS_CANCELED,
+          Task::ACTION_START => Task::STATUS_IN_PROGRESS,
+          Task::ACTION_COMPLETE => Task::STATUS_COMPLETED,
+          Task::ACTION_REFUSE => Task::STATUS_FAILED,
         };
     }
 
     private function getStatusesMap() :array {
         return [
-            'new' => 'Новое',
-            'canceled' => 'Отменено',
-            'inProgress' => 'В работе',
-            'completed' => 'Выполнено',
-            'failed' => 'Провалено',
+            Task::STATUS_NEW => 'Новое',
+            Task::STATUS_CANCELED => 'Отменено',
+            Task::STATUS_IN_PROGRESS => 'В работе',
+            Task::STATUS_COMPLETED => 'Выполнено',
+            Task::STATUS_FAILED => 'Провалено',
         ];
     }
 
     private function getActionsMap() :array {
         return [
-            'add' => 'добавить',
-            'cancel' => 'отменить',
-            'start' => 'начинать',
-            'complete' => 'завершить',
-            'refuse' => 'отказываться',
+            Task::ACTION_ADD => 'добавить',
+            Task::ACTION_CANCEL => 'отменить',
+            Task::ACTION_START => 'начинать',
+            Task::ACTION_COMPLETE => 'завершить',
+            Task::ACTION_REFUSE => 'отказываться',
         ];
     }
 }
