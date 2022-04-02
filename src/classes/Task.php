@@ -1,5 +1,6 @@
 <?php
-class Task {
+class Task
+{
     private int $clientId;
     private int $executorId;
     private string $status;
@@ -17,12 +18,14 @@ class Task {
     private CONST ACTION_REFUSE = 'refuse';
     private CONST ACTION_RESPOND = 'respond';
 
-    public function __construct(int $clientId, int $executorId, string $status) {
+    public function __construct(int $clientId, int $executorId, string $status)
+    {
         $this->clientId = $clientId;
         $this->executorId = $executorId;
         $this->status = $status;
     }
-    private function getAllStatuses() :array {
+    private function getAllStatuses() :array
+    {
         return [
             Task::STATUS_NEW,
             Task::STATUS_CANCELED,
@@ -32,7 +35,8 @@ class Task {
         ];
     }
 
-    private function getAllActions() :array {
+    private function getAllActions() :array
+    {
         return [
             Task::ACTION_ADD,
             Task::ACTION_CANCEL,
@@ -43,7 +47,8 @@ class Task {
         ];
     }
 
-    private function getAvailableActions(string $status) :array {
+    private function getAvailableActions(string $status) :array
+    {
         return match ($status) {
             Task::STATUS_NEW => [Task::ACTION_START, Task::ACTION_CANCEL],
             Task::STATUS_IN_PROGRESS => [Task::ACTION_COMPLETE, Task::ACTION_REFUSE],
@@ -51,7 +56,8 @@ class Task {
         };
     }
 
-    private function getActionResultingStatus(string $action) :string {
+    private function getActionResultingStatus(string $action) :string
+    {
         return match ($action) {
           Task::ACTION_ADD => Task::STATUS_NEW,
           Task::ACTION_CANCEL => Task::STATUS_CANCELED,
@@ -61,7 +67,8 @@ class Task {
         };
     }
 
-    private function getStatusesMap() :array {
+    private function getStatusesMap() :array
+    {
         return [
             Task::STATUS_NEW => 'Новое',
             Task::STATUS_CANCELED => 'Отменено',
@@ -71,7 +78,8 @@ class Task {
         ];
     }
 
-    private function getActionsMap() :array {
+    private function getActionsMap() :array
+    {
         return [
             Task::ACTION_ADD => 'добавить',
             Task::ACTION_CANCEL => 'отменить',
