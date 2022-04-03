@@ -42,7 +42,7 @@ class Task
     /**
      * @return string[]
      */
-    private function getAllStatuses() :array
+    public function getAllStatuses() :array
     {
         return [
             Task::STATUS_NEW,
@@ -56,7 +56,7 @@ class Task
     /**
      * @return string[]
      */
-    private function getAllActions() :array
+    public function getAllActions() :array
     {
         return [
             Task::ACTION_ADD,
@@ -72,7 +72,7 @@ class Task
      * @param string $status
      * @return string[]
      */
-    private function getAvailableActions(string $status) :array
+    public function getAvailableActions(string $status) :array
     {
         return match ($status) {
             Task::STATUS_NEW => [Task::ACTION_START, Task::ACTION_CANCEL],
@@ -88,11 +88,11 @@ class Task
     private function getActionResultingStatus(string $action) :string
     {
         return match ($action) {
-          Task::ACTION_ADD => Task::STATUS_NEW,
-          Task::ACTION_CANCEL => Task::STATUS_CANCELED,
-          Task::ACTION_START => Task::STATUS_IN_PROGRESS,
-          Task::ACTION_COMPLETE => Task::STATUS_COMPLETED,
-          Task::ACTION_REFUSE => Task::STATUS_FAILED,
+            Task::ACTION_ADD => Task::STATUS_NEW,
+            Task::ACTION_CANCEL => Task::STATUS_CANCELED,
+            Task::ACTION_START => Task::STATUS_IN_PROGRESS,
+            Task::ACTION_COMPLETE => Task::STATUS_COMPLETED,
+            Task::ACTION_REFUSE => Task::STATUS_FAILED,
         };
     }
 
