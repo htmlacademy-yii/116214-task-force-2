@@ -1,7 +1,4 @@
 <?php
-
-use JetBrains\PhpStorm\Pure;
-
 include "src/classes/Task.php";
 
 assert_options(ASSERT_ACTIVE, true);
