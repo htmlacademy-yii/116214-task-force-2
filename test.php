@@ -55,6 +55,14 @@ function test() :void {
         Task::STATUS_COMPLETED => 'Выполнено',
         Task::STATUS_FAILED => 'Провалено',
     ]);
+
+    assert($task->getActionsMap() == [
+        Task::ACTION_ADD => 'добавить',
+        Task::ACTION_CANCEL => 'отменить',
+        Task::ACTION_START => 'начинать',
+        Task::ACTION_COMPLETE => 'завершить',
+        Task::ACTION_REFUSE => 'отказываться',
+    ]);
 }
 
 test();
