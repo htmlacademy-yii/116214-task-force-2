@@ -17,11 +17,11 @@ function assert_failed(string $file, int $line, string|null $assertion, string $
 #[Pure]
 function getAllStatuses(\Task $task) :bool {
     $waiting = [
-        'new',
-        'canceled',
-        'inProgress',
-        'completed',
-        'failed',
+        $task::STATUS_NEW,
+        $task::STATUS_CANCELED,
+        $task::STATUS_IN_PROGRESS,
+        $task::STATUS_COMPLETED,
+        $task::STATUS_FAILED,
     ];
     $result = $task->getAllStatuses();
     return empty(array_diff($waiting, $result));
@@ -30,12 +30,11 @@ function getAllStatuses(\Task $task) :bool {
 #[Pure]
 function getAllActions(\Task $task) :bool {
     $waiting = [
-        'add',
-        'cancel',
-        'start',
-        'complete',
-        'refuse',
-        'respond',
+        $task::ACTION_ADD,
+        $task::ACTION_CANCEL,
+        $task::ACTION_START,
+        $task::ACTION_COMPLETE,
+        $task::ACTION_REFUSE,
     ];
     $result = $task->getAllActions();
     return empty(array_diff($waiting, $result));
@@ -44,8 +43,8 @@ function getAllActions(\Task $task) :bool {
 #[Pure]
 function getAvailableActionsForNew(\Task $task, string $action) :bool {
     $waiting = [
-        'start',
-        'cancel',
+        $task::ACTION_START,
+        $task::ACTION_CANCEL,
     ];
     $result = $task->getAvailableActions($action);
     return empty(array_diff($waiting, $result));
@@ -54,8 +53,8 @@ function getAvailableActionsForNew(\Task $task, string $action) :bool {
 #[Pure]
 function getAvailableActionsForInProgress(\Task $task, string $action) :bool {
     $waiting = [
-        'complete',
-        'refuse',
+        $task::ACTION_COMPLETE,
+        $task::ACTION_REFUSE,
     ];
     $result = $task->getAvailableActions($action);
     return empty(array_diff($waiting, $result));
