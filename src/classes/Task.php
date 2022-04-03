@@ -12,7 +12,6 @@ class Task
     public CONST ACTION_START = 'start';
     public CONST ACTION_COMPLETE = 'complete';
     public CONST ACTION_REFUSE = 'refuse';
-    public CONST ACTION_RESPOND = 'respond';
 
     /**
      * @var int
