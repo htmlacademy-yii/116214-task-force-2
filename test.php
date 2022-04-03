@@ -47,6 +47,14 @@ function test() :void {
     assert($task->getActionResultingStatus(Task::ACTION_START) === Task::STATUS_IN_PROGRESS);
     assert($task->getActionResultingStatus(Task::ACTION_COMPLETE) === Task::STATUS_COMPLETED);
     assert($task->getActionResultingStatus(Task::ACTION_REFUSE) === Task::STATUS_FAILED);
+
+    assert($task->getStatusesMap() == [
+        Task::STATUS_NEW => 'Новое',
+        Task::STATUS_CANCELED => 'Отменено',
+        Task::STATUS_IN_PROGRESS => 'В работе',
+        Task::STATUS_COMPLETED => 'Выполнено',
+        Task::STATUS_FAILED => 'Провалено',
+    ]);
 }
 
 test();
