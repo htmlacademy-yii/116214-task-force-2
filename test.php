@@ -2,7 +2,7 @@
 
 use JetBrains\PhpStorm\Pure;
 
-include "../classes/Task.php";
+include "src/classes/Task.php";
 
 assert_options(ASSERT_ACTIVE, true);
 assert_options(ASSERT_BAIL, true);
