@@ -69,12 +69,11 @@ class Task
     }
 
     /**
-     * @param string $status
      * @return string[]
      */
-    public function getAvailableActions(string $status) :array
+    public function getAvailableActions() :array
     {
-        return match ($status) {
+        return match ($this->status) {
             Task::STATUS_NEW => [Task::ACTION_START, Task::ACTION_CANCEL],
             Task::STATUS_IN_PROGRESS => [Task::ACTION_COMPLETE, Task::ACTION_REFUSE],
             Task::STATUS_CANCELED, Task::STATUS_COMPLETED, Task::STATUS_FAILED => [],
