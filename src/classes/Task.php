@@ -63,7 +63,6 @@ class Task
             Task::ACTION_START,
             Task::ACTION_COMPLETE,
             Task::ACTION_REFUSE,
-            Task::ACTION_RESPOND,
         ];
     }
 
