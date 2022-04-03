@@ -1,18 +1,18 @@
 <?php
 class Task
 {
-    private CONST STATUS_NEW = 'new';
-    private CONST STATUS_CANCELED = 'canceled';
-    private CONST STATUS_IN_PROGRESS = 'inProgress';
-    private CONST STATUS_COMPLETED = 'completed';
-    private CONST STATUS_FAILED = 'failed';
+    public CONST STATUS_NEW = 'new';
+    public CONST STATUS_CANCELED = 'canceled';
+    public CONST STATUS_IN_PROGRESS = 'inProgress';
+    public CONST STATUS_COMPLETED = 'completed';
+    public CONST STATUS_FAILED = 'failed';
 
-    private CONST ACTION_ADD = 'add';
-    private CONST ACTION_CANCEL = 'cancel';
-    private CONST ACTION_START = 'start';
-    private CONST ACTION_COMPLETE = 'complete';
-    private CONST ACTION_REFUSE = 'refuse';
-    private CONST ACTION_RESPOND = 'respond';
+    public CONST ACTION_ADD = 'add';
+    public CONST ACTION_CANCEL = 'cancel';
+    public CONST ACTION_START = 'start';
+    public CONST ACTION_COMPLETE = 'complete';
+    public CONST ACTION_REFUSE = 'refuse';
+    public CONST ACTION_RESPOND = 'respond';
 
     /**
      * @var int
