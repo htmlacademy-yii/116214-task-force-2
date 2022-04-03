@@ -12,7 +12,7 @@ function assert_failed(string $file, int $line, string|null $assertion, string $
 }
 
 function test() :void {
-    $task = new Task(1, 1, 'new');
+    $task = new Task(1, 1, Task::STATUS_NEW);
 
     assert($task->getAllActions() == [
         $task::ACTION_ADD,
@@ -30,21 +30,17 @@ function test() :void {
         $task::STATUS_FAILED,
     ]);
 
-    assert((new Task(1, 1, 'new'))->getAvailableActions() == [
+    assert((new Task(1, 1, Task::STATUS_NEW))->getAvailableActions() == [
         Task::ACTION_START,
         Task::ACTION_CANCEL,
     ]);
-
-    assert((new Task(1, 1, 'inProgress'))->getAvailableActions() == [
+    assert((new Task(1, 1, Task::STATUS_IN_PROGRESS))->getAvailableActions() == [
         Task::ACTION_COMPLETE,
         Task::ACTION_REFUSE,
     ]);
-
-    assert(empty((new Task(1, 1, 'canceled'))->getAvailableActions()));
-
-    assert(empty((new Task(1, 1, 'completed'))->getAvailableActions()));
-
-    assert(empty((new Task(1, 1, 'failed'))->getAvailableActions()));
+    assert(empty((new Task(1, 1, Task::STATUS_CANCELED))->getAvailableActions()));
+    assert(empty((new Task(1, 1, Task::STATUS_COMPLETED))->getAvailableActions()));
+    assert(empty((new Task(1, 1, Task::STATUS_FAILED))->getAvailableActions()));
 }
 
 test();
