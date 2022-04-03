@@ -82,7 +82,7 @@ class Task
      * @param string $action
      * @return string
      */
-    private function getActionResultingStatus(string $action) :string
+    public function getActionResultingStatus(string $action) :string
     {
         return match ($action) {
             Task::ACTION_ADD => Task::STATUS_NEW,
@@ -96,7 +96,7 @@ class Task
     /**
      * @return string[]
      */
-    private function getStatusesMap() :array
+    public function getStatusesMap() :array
     {
         return [
             Task::STATUS_NEW => 'Новое',
@@ -110,7 +110,7 @@ class Task
     /**
      * @return string[]
      */
-    private function getActionsMap() :array
+    public function getActionsMap() :array
     {
         return [
             Task::ACTION_ADD => 'добавить',
