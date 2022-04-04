@@ -26,11 +26,11 @@ function test() :void {
     assert(empty((new Task(1, 1, Task::STATUS_COMPLETED))->getAvailableActions()));
     assert(empty((new Task(1, 1, Task::STATUS_FAILED))->getAvailableActions()));
 
-    assert($task->getActionResultingStatus(Task::ACTION_ADD) === Task::STATUS_NEW);
-    assert($task->getActionResultingStatus(Task::ACTION_CANCEL) === Task::STATUS_CANCELED);
-    assert($task->getActionResultingStatus(Task::ACTION_START) === Task::STATUS_IN_PROGRESS);
-    assert($task->getActionResultingStatus(Task::ACTION_COMPLETE) === Task::STATUS_COMPLETED);
-    assert($task->getActionResultingStatus(Task::ACTION_REFUSE) === Task::STATUS_FAILED);
+    assert(Task::getActionResultingStatus(Task::ACTION_ADD) === Task::STATUS_NEW);
+    assert(Task::getActionResultingStatus(Task::ACTION_CANCEL) === Task::STATUS_CANCELED);
+    assert(Task::getActionResultingStatus(Task::ACTION_START) === Task::STATUS_IN_PROGRESS);
+    assert(Task::getActionResultingStatus(Task::ACTION_COMPLETE) === Task::STATUS_COMPLETED);
+    assert(Task::getActionResultingStatus(Task::ACTION_REFUSE) === Task::STATUS_FAILED);
 }
 
 test();
