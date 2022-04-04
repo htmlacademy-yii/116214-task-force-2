@@ -12,7 +12,6 @@ function assert_failed(string $file, int $line, string|null $assertion, string $
 }
 
 function test() :void {
-    $task = new Task(1, 1, Task::STATUS_NEW);
 
     assert((new Task(1, 1, Task::STATUS_NEW))->getAvailableActions() == [
         Task::ACTION_START,
