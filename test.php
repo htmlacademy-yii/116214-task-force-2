@@ -14,22 +14,6 @@ function assert_failed(string $file, int $line, string|null $assertion, string $
 function test() :void {
     $task = new Task(1, 1, Task::STATUS_NEW);
 
-    assert($task->getAllActions() == [
-        $task::ACTION_ADD,
-        $task::ACTION_CANCEL,
-        $task::ACTION_START,
-        $task::ACTION_COMPLETE,
-        $task::ACTION_REFUSE,
-    ]);
-
-    assert($task->getAllStatuses() == [
-        $task::STATUS_NEW,
-        $task::STATUS_CANCELED,
-        $task::STATUS_IN_PROGRESS,
-        $task::STATUS_COMPLETED,
-        $task::STATUS_FAILED,
-    ]);
-
     assert((new Task(1, 1, Task::STATUS_NEW))->getAvailableActions() == [
         Task::ACTION_START,
         Task::ACTION_CANCEL,
@@ -47,22 +31,6 @@ function test() :void {
     assert($task->getActionResultingStatus(Task::ACTION_START) === Task::STATUS_IN_PROGRESS);
     assert($task->getActionResultingStatus(Task::ACTION_COMPLETE) === Task::STATUS_COMPLETED);
     assert($task->getActionResultingStatus(Task::ACTION_REFUSE) === Task::STATUS_FAILED);
-
-    assert($task->getStatusesMap() == [
-        Task::STATUS_NEW => 'Новое',
-        Task::STATUS_CANCELED => 'Отменено',
-        Task::STATUS_IN_PROGRESS => 'В работе',
-        Task::STATUS_COMPLETED => 'Выполнено',
-        Task::STATUS_FAILED => 'Провалено',
-    ]);
-
-    assert($task->getActionsMap() == [
-        Task::ACTION_ADD => 'добавить',
-        Task::ACTION_CANCEL => 'отменить',
-        Task::ACTION_START => 'начинать',
-        Task::ACTION_COMPLETE => 'завершить',
-        Task::ACTION_REFUSE => 'отказываться',
-    ]);
 }
 
 test();
