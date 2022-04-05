@@ -1,4 +1,6 @@
 <?php
+namespace TaskForce;
+
 class Task
 {
     public CONST STATUS_NEW = 'new';
