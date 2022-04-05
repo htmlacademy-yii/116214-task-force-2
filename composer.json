@@ -7,5 +7,10 @@
             "email": "vaxotivadze@gmail.com"
         }
     ],
+    "autoload": {
+      "psr-4": {
+        "TaskForce\\": "src/"
+      }
+    },
     "require": {}
 }
