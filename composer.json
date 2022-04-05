@@ -1,0 +1,11 @@
+{
+    "name": "user/116214-task-force-2",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Vakhtang Tivadze",
+            "email": "vaxotivadze@gmail.com"
+        }
+    ],
+    "require": {}
+}
