@@ -1,5 +1,5 @@
 <?php
-include "src/classes/Task.php";
+require_once "vendor/autoload.php";
 
 assert_options(ASSERT_ACTIVE, true);
 assert_options(ASSERT_BAIL, true);

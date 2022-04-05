@@ -1,16 +1,10 @@
 {
     "name": "user/116214-task-force-2",
     "type": "project",
-    "authors": [
-        {
-            "name": "Vakhtang Tivadze",
-            "email": "vaxotivadze@gmail.com"
-        }
-    ],
     "autoload": {
-      "psr-4": {
-        "TaskForce\\": "src/"
-      }
+        "psr-4": {
+            "TaskForce\\": "src/"
+        }
     },
     "require": {}
 }
