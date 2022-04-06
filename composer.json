@@ -1,0 +1,10 @@
+{
+    "name": "user/116214-task-force-2",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "TaskForce\\": "src/"
+        }
+    },
+    "require": {}
+}
