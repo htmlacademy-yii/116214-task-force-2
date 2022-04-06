@@ -1,6 +1,8 @@
 <?php
 require_once "vendor/autoload.php";
 
+use TaskForce\Classes\Task;
+
 assert_options(ASSERT_ACTIVE, true);
 assert_options(ASSERT_BAIL, true);
 assert_options(ASSERT_CALLBACK, "assert_failed");
